@@ -1,0 +1,17 @@
+name: Crear y subir imagen de docker 
+
+on: 
+  [workflow_dispatch]
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: construir imagen
+        run: docker build -t pablop19/ejemplo1:latest
+
+      - name: subir imagen
+        run: docker push pablop19/ejemplo1:latest
