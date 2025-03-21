@@ -26,14 +26,11 @@ async function conectarMongoDB() {
     app.get('/usuarios', async (req, res) => {
       try {
         const usuarios = await coleccionUsuarios.find({}).toArray();
-        console.log('Usuarios encontrados:', usuarios.length);
+        console.log('Usuarios encontrados:', usuarios);
         res.json(usuarios);
       } catch (error) {
-        console.error('Error detallado al obtener usuarios:', error);
-        res.status(500).json({ 
-          error: 'Error al obtener usuarios', 
-          detalles: error.message
-        });
+        console.error('Error al obtener usuarios:', error);
+        res.status(500).json({ error: 'Error al obtener usuarios' });
       }
     });
 
