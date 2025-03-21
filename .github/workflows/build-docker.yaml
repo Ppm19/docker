@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: construir imagen
-        run: docker build -t pablop19/ejemplo1:latest .
+        run: docker build -t pablop19/ejemplo2:latest .
 
       - name: iniciar sesion en docker hub
         uses: docker/login-action@v3
@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: subir imagen
-        run: docker push pablop19/ejemplo1:latest
+        run: docker push pablop19/ejemplo2:latest
